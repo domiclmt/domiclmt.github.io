@@ -18,365 +18,144 @@
     --accent: #E8621A;
     --accent-dim: rgba(232,98,26,0.12);
     --accent-hover: #F07030;
+    --edu-color: #4A9EDB;
+    --edu-dim: rgba(74,158,219,0.12);
     --green: #3DB87A;
     --radius: 12px;
     --radius-sm: 8px;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.6; overflow-x: hidden; }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    font-size: 15px;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 1rem 2.5rem;
-    background: rgba(15,14,12,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid var(--border);
-  }
-  .nav-logo {
-    font-family: 'Syne', sans-serif;
-    font-size: 18px; font-weight: 700;
-    color: var(--text); letter-spacing: -0.02em;
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2.5rem; background: rgba(15,14,12,0.88); backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--border); }
+  .nav-logo { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
   .nav-logo span { color: var(--accent); }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    font-size: 13px; color: var(--text-muted);
-    text-decoration: none; transition: color .2s;
-    letter-spacing: .01em;
-  }
+  .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color .2s; }
   .nav-links a:hover { color: var(--text); }
-  .nav-cta {
-    background: var(--accent); color: #fff;
-    border: none; padding: 8px 18px;
-    border-radius: var(--radius-sm);
-    font-size: 13px; font-weight: 500;
-    cursor: pointer; text-decoration: none;
-    transition: background .2s;
-    font-family: 'DM Sans', sans-serif;
-  }
+  .nav-cta { background: var(--accent); color: #fff; border: none; padding: 8px 18px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 500; cursor: pointer; text-decoration: none; transition: background .2s; font-family: 'DM Sans', sans-serif; }
   .nav-cta:hover { background: var(--accent-hover); }
 
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: flex; align-items: center;
-    padding: 8rem 2.5rem 5rem;
-    max-width: 1100px; margin: 0 auto;
-    position: relative;
-  }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem; align-items: center; width: 100%;
-  }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: var(--accent-dim);
-    border: 0.5px solid rgba(232,98,26,0.3);
-    color: var(--accent); font-size: 12px; font-weight: 500;
-    padding: 5px 12px; border-radius: 20px;
-    margin-bottom: 1.5rem; letter-spacing: .04em;
-  }
-  .hero-badge::before {
-    content: ''; width: 6px; height: 6px;
-    border-radius: 50%; background: var(--green);
-    animation: pulse 2s ease infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-  .hero h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(42px, 5vw, 64px);
-    font-weight: 700; line-height: 1.05;
-    letter-spacing: -0.03em;
-    color: var(--text);
-    margin-bottom: 1.5rem;
-  }
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 2.5rem 5rem; max-width: 1100px; margin: 0 auto; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; width: 100%; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--accent-dim); border: 0.5px solid rgba(232,98,26,0.3); color: var(--accent); font-size: 12px; font-weight: 500; padding: 5px 12px; border-radius: 20px; margin-bottom: 1.5rem; letter-spacing: .04em; }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s ease infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(42px, 5vw, 64px); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; color: var(--text); margin-bottom: 1.5rem; }
   .hero h1 em { color: var(--accent); font-style: normal; }
-  .hero-sub {
-    font-size: 16px; color: var(--text-muted);
-    max-width: 440px; line-height: 1.7;
-    margin-bottom: 2rem;
-  }
+  .hero-sub { font-size: 16px; color: var(--text-muted); max-width: 440px; line-height: 1.7; margin-bottom: 2rem; }
   .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 2.5rem; }
-  .btn-primary {
-    background: var(--accent); color: #fff;
-    border: none; padding: 12px 24px;
-    border-radius: var(--radius-sm);
-    font-size: 14px; font-weight: 500;
-    cursor: pointer; text-decoration: none;
-    transition: background .2s, transform .1s;
-    font-family: 'DM Sans', sans-serif;
-    display: inline-block;
-  }
+  .btn-primary { background: var(--accent); color: #fff; border: none; padding: 12px 24px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; transition: background .2s, transform .1s; font-family: 'DM Sans', sans-serif; display: inline-block; }
   .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
-  .btn-outline {
-    background: transparent; color: var(--text);
-    border: 0.5px solid var(--border2);
-    padding: 12px 24px; border-radius: var(--radius-sm);
-    font-size: 14px; cursor: pointer;
-    text-decoration: none; transition: border-color .2s, color .2s;
-    font-family: 'DM Sans', sans-serif;
-    display: inline-block;
-  }
+  .btn-outline { background: transparent; color: var(--text); border: 0.5px solid var(--border2); padding: 12px 24px; border-radius: var(--radius-sm); font-size: 14px; cursor: pointer; text-decoration: none; transition: border-color .2s, color .2s; font-family: 'DM Sans', sans-serif; display: inline-block; }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
   .hero-stack { display: flex; flex-wrap: wrap; gap: 8px; }
-  .stack-pill {
-    background: var(--surface); border: 0.5px solid var(--border);
-    color: var(--text-muted); font-size: 12px;
-    padding: 5px 12px; border-radius: 20px;
-    transition: border-color .2s, color .2s;
-  }
+  .stack-pill { background: var(--surface); border: 0.5px solid var(--border); color: var(--text-muted); font-size: 12px; padding: 5px 12px; border-radius: 20px; transition: border-color .2s, color .2s; }
   .stack-pill:hover { border-color: var(--accent); color: var(--text); }
-  .hero-visual {
-    display: flex; justify-content: center; align-items: center;
-  }
-  .stats-card {
-    background: var(--surface);
-    border: 0.5px solid var(--border2);
-    border-radius: var(--radius);
-    padding: 1.5rem; width: 100%; max-width: 340px;
-  }
-  .stats-header {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 1.5rem;
-  }
+  .hero-visual { display: flex; justify-content: center; align-items: center; }
+  .stats-card { background: var(--surface); border: 0.5px solid var(--border2); border-radius: var(--radius); padding: 1.5rem; width: 100%; max-width: 340px; }
+  .stats-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
   .stats-title { font-size: 13px; color: var(--text-muted); }
-  .stats-live {
-    display: flex; align-items: center; gap: 5px;
-    font-size: 11px; color: var(--green);
-  }
-  .stats-live::before {
-    content: ''; width: 5px; height: 5px;
-    border-radius: 50%; background: var(--green);
-  }
-  .stat-row {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 0.5px solid var(--border);
-  }
+  .stats-live { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--green); }
+  .stats-live::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
+  .stat-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 0.5px solid var(--border); }
   .stat-row:last-child { border-bottom: none; }
   .stat-label { font-size: 13px; color: var(--text-muted); }
-  .stat-val {
-    font-family: 'Syne', sans-serif;
-    font-size: 15px; font-weight: 600; color: var(--text);
-  }
-  .stat-val.accent { color: var(--accent); }
+  .stat-val { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 600; color: var(--accent); }
   .stat-bar-wrap { width: 80px; height: 4px; background: var(--surface2); border-radius: 2px; }
   .stat-bar { height: 100%; background: var(--accent); border-radius: 2px; }
 
-  /* ── SECTIONS ── */
   section { padding: 5rem 2.5rem; max-width: 1100px; margin: 0 auto; }
-  .section-label {
-    font-size: 11px; font-weight: 500; letter-spacing: .1em;
-    text-transform: uppercase; color: var(--accent);
-    margin-bottom: 2.5rem;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .section-label::after {
-    content: ''; flex: 1; max-width: 60px;
-    height: 0.5px; background: var(--accent); opacity: .4;
-  }
-  .section-heading {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(28px, 3vw, 38px);
-    font-weight: 700; letter-spacing: -0.02em;
-    margin-bottom: 0.5rem; line-height: 1.15;
-  }
-  .section-sub {
-    font-size: 15px; color: var(--text-muted);
-    margin-bottom: 3rem; max-width: 520px;
-  }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 2.5rem; display: flex; align-items: center; gap: 10px; }
+  .section-label::after { content: ''; flex: 1; max-width: 60px; height: 0.5px; background: var(--accent); opacity: .4; }
+  .section-heading { font-family: 'Syne', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; line-height: 1.15; }
+  .section-sub { font-size: 15px; color: var(--text-muted); margin-bottom: 3rem; max-width: 520px; }
 
-  /* ── SKILLS ── */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-  }
-  .skill-card {
-    background: var(--surface);
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius); padding: 1.4rem;
-    transition: border-color .2s, transform .2s;
-  }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .skill-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.4rem; transition: border-color .2s, transform .2s; }
   .skill-card:hover { border-color: var(--border2); transform: translateY(-2px); }
-  .skill-icon {
-    width: 36px; height: 36px; border-radius: 8px;
-    background: var(--accent-dim);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1rem; font-size: 16px;
-  }
-  .skill-name {
-    font-family: 'Syne', sans-serif;
-    font-size: 14px; font-weight: 600; margin-bottom: 10px;
-  }
+  .skill-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--accent-dim); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 16px; }
+  .skill-name { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 10px; }
   .skill-items { display: flex; flex-direction: column; gap: 6px; }
-  .skill-item {
-    font-size: 12px; color: var(--text-muted);
-    display: flex; align-items: center; gap: 7px;
-  }
-  .skill-item::before {
-    content: ''; width: 4px; height: 4px;
-    border-radius: 50%; background: var(--accent); flex-shrink: 0;
-  }
+  .skill-item { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 7px; }
+  .skill-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
 
-  /* ── PROJECTS ── */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-  }
-  .project-card {
-    background: var(--surface);
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius); padding: 1.6rem;
-    transition: border-color .2s, transform .2s;
-    display: flex; flex-direction: column;
-  }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .project-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.6rem; transition: border-color .2s, transform .2s; display: flex; flex-direction: column; }
   .project-card:hover { border-color: rgba(232,98,26,0.4); transform: translateY(-3px); }
-  .project-top {
-    display: flex; justify-content: space-between;
-    align-items: flex-start; margin-bottom: 1rem;
-  }
-  .project-emoji {
-    width: 42px; height: 42px; border-radius: 10px;
-    background: var(--accent-dim); font-size: 18px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .project-link {
-    color: var(--text-dim); font-size: 20px; text-decoration: none;
-    transition: color .2s; line-height: 1;
-  }
+  .project-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+  .project-emoji { width: 42px; height: 42px; border-radius: 10px; background: var(--accent-dim); font-size: 18px; display: flex; align-items: center; justify-content: center; }
+  .project-link { color: var(--text-dim); font-size: 20px; text-decoration: none; transition: color .2s; line-height: 1; }
   .project-link:hover { color: var(--accent); }
-  .project-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 16px; font-weight: 600; margin-bottom: 8px;
-  }
-  .project-desc {
-    font-size: 13px; color: var(--text-muted);
-    line-height: 1.65; margin-bottom: 1.2rem; flex: 1;
-  }
+  .project-title { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+  .project-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.2rem; flex: 1; }
   .project-tags { display: flex; gap: 6px; flex-wrap: wrap; }
-  .project-tag {
-    font-size: 11px; padding: 3px 9px; border-radius: 20px;
-    background: var(--accent-dim);
-    color: var(--accent); border: 0.5px solid rgba(232,98,26,0.2);
-  }
+  .project-tag { font-size: 11px; padding: 3px 9px; border-radius: 20px; background: var(--accent-dim); color: var(--accent); border: 0.5px solid rgba(232,98,26,0.2); }
 
-  /* ── TIMELINE ── */
-  .timeline { position: relative; padding-left: 1.5rem; }
-  .timeline::before {
-    content: ''; position: absolute; left: 0; top: 8px; bottom: 0;
-    width: 0.5px; background: var(--border2);
-  }
-  .tl-item { position: relative; padding-bottom: 2.5rem; padding-left: 1.8rem; }
+  /* PARCOURS DEUX COLONNES */
+  .legend { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--text-muted); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .parcours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .tl-block-header { display: flex; align-items: center; gap: 10px; font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 600; margin-bottom: 2rem; padding-bottom: 0.8rem; border-bottom: 0.5px solid var(--border2); }
+  .tl-block-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .dot-pro { background: var(--accent); }
+  .dot-edu { background: var(--edu-color); }
+
+  .timeline { position: relative; padding-left: 1.2rem; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 0; width: 0.5px; }
+  .timeline.pro::before { background: rgba(232,98,26,0.35); }
+  .timeline.edu::before { background: rgba(74,158,219,0.35); }
+
+  .tl-item { position: relative; padding-bottom: 2rem; padding-left: 1.6rem; }
   .tl-item:last-child { padding-bottom: 0; }
-  .tl-dot {
-    position: absolute; left: -1.5rem;
-    width: 12px; height: 12px; border-radius: 50%;
-    background: var(--accent); top: 4px;
-    border: 2px solid var(--bg);
-    box-shadow: 0 0 0 1px var(--accent);
-  }
-  .tl-dot.edu { background: var(--surface2); border: 1.5px solid var(--border2); box-shadow: none; }
-  .tl-date { font-size: 11px; color: var(--text-dim); margin-bottom: 4px; letter-spacing: .04em; }
-  .tl-role {
-    font-family: 'Syne', sans-serif;
-    font-size: 16px; font-weight: 600; margin-bottom: 2px;
-  }
-  .tl-company { font-size: 13px; color: var(--accent); margin-bottom: 6px; }
-  .tl-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-  .tl-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
-  .tl-tag {
-    font-size: 11px; padding: 2px 8px; border-radius: 4px;
-    background: var(--surface2); color: var(--text-muted);
-    border: 0.5px solid var(--border);
-  }
+  .tl-dot { position: absolute; left: -1.3rem; width: 11px; height: 11px; border-radius: 50%; top: 5px; border: 2px solid var(--bg); }
+  .tl-dot.pro { background: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .tl-dot.edu { background: var(--edu-color); box-shadow: 0 0 0 1px var(--edu-color); }
 
-  /* ── CONTACT ── */
-  .contact-section {
-    background: var(--surface);
-    border: 0.5px solid var(--border2);
-    border-radius: var(--radius);
-    padding: 3rem; margin: 0 2.5rem 4rem;
-    display: flex; justify-content: space-between;
-    align-items: center; flex-wrap: wrap; gap: 2rem;
-    max-width: 1060px; margin-left: auto; margin-right: auto;
-  }
-  .contact-left h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: 26px; font-weight: 700; margin-bottom: 6px;
-  }
+  .tl-date { font-size: 11px; color: var(--text-dim); margin-bottom: 3px; letter-spacing: .04em; text-transform: uppercase; }
+  .tl-role { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 600; margin-bottom: 2px; line-height: 1.3; }
+  .tl-company { font-size: 13px; margin-bottom: 7px; }
+  .tl-company.pro { color: var(--accent); }
+  .tl-company.edu { color: var(--edu-color); }
+  .tl-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.65; margin-bottom: 10px; }
+  .tl-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tl-tag { font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--surface2); color: var(--text-muted); border: 0.5px solid var(--border); }
+  .tl-tag.pro { background: var(--accent-dim); color: var(--accent); border-color: rgba(232,98,26,0.2); }
+  .tl-tag.edu { background: var(--edu-dim); color: var(--edu-color); border-color: rgba(74,158,219,0.2); }
+
+  .contact-section { background: var(--surface); border: 0.5px solid var(--border2); border-radius: var(--radius); padding: 3rem; margin: 0 auto 4rem; max-width: 1060px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
+  .contact-left h2 { font-family: 'Syne', sans-serif; font-size: 26px; font-weight: 700; margin-bottom: 6px; }
   .contact-left p { font-size: 14px; color: var(--text-muted); }
   .contact-links { display: flex; gap: 10px; flex-wrap: wrap; }
-  .contact-link {
-    display: flex; align-items: center; gap: 7px;
-    font-size: 13px; padding: 9px 16px;
-    border-radius: var(--radius-sm);
-    border: 0.5px solid var(--border2);
-    color: var(--text-muted); text-decoration: none;
-    transition: border-color .2s, color .2s;
-  }
+  .contact-link { display: flex; align-items: center; gap: 7px; font-size: 13px; padding: 9px 16px; border-radius: var(--radius-sm); border: 0.5px solid var(--border2); color: var(--text-muted); text-decoration: none; transition: border-color .2s, color .2s; }
   .contact-link:hover { border-color: var(--accent); color: var(--accent); }
 
-  /* ── FOOTER ── */
-  footer {
-    text-align: center; padding: 2rem;
-    font-size: 12px; color: var(--text-dim);
-    border-top: 0.5px solid var(--border);
-  }
+  footer { text-align: center; padding: 2rem; font-size: 12px; color: var(--text-dim); border-top: 0.5px solid var(--border); }
+  .full-divider { border: none; border-top: 0.5px solid var(--border); margin: 0; }
 
-  /* ── DIVIDER ── */
-  .full-divider {
-    border: none;
-    border-top: 0.5px solid var(--border);
-    margin: 0;
-  }
-
-  /* ── ANIMATIONS ── */
-  .fade-in {
-    opacity: 0; transform: translateY(20px);
-    animation: fadeIn .6s ease forwards;
-  }
-  @keyframes fadeIn {
-    to { opacity: 1; transform: translateY(0); }
-  }
+  .fade-in { opacity: 0; transform: translateY(20px); animation: fadeIn .6s ease forwards; }
+  @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
   .delay-1 { animation-delay: .1s; }
   .delay-2 { animation-delay: .2s; }
   .delay-3 { animation-delay: .3s; }
   .delay-4 { animation-delay: .4s; }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .hero { padding: 6rem 1.5rem 3rem; }
-    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-grid { grid-template-columns: 1fr; }
     .hero-visual { display: none; }
     section { padding: 3.5rem 1.5rem; }
+    .parcours-grid { grid-template-columns: 1fr; gap: 2rem; }
     .contact-section { padding: 2rem 1.5rem; margin: 0 1.5rem 3rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">DC<span>.</span></div>
   <ul class="nav-links">
@@ -388,15 +167,12 @@
   <a href="CV_dominique_clement_2026.pdf" download class="nav-cta">Télécharger CV</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-grid">
     <div>
       <div class="hero-badge fade-in">Disponible · Montréal, QC</div>
       <h1 class="fade-in delay-1">Dominique<br><em>Clément</em><br>Data Analyst</h1>
-      <p class="hero-sub fade-in delay-2">
-        Je transforme des colonnes SQL en décisions stratégiques. Spécialisé en Python, Power BI et Snowflake — passionné par la qualité et la gouvernance des données.
-      </p>
+      <p class="hero-sub fade-in delay-2">Je transforme des colonnes SQL en décisions stratégiques. Spécialisé en Python, Power BI et Snowflake — passionné par la qualité et la gouvernance des données.</p>
       <div class="hero-btns fade-in delay-3">
         <a href="#projects" class="btn-primary">Voir mes projets</a>
         <a href="CV_dominique_clement_2026.pdf" download class="btn-outline">Télécharger le CV</a>
@@ -417,29 +193,29 @@
           <span class="stats-live">Actif</span>
         </div>
         <div class="stat-row">
-          <span class="stat-label">Python</span>
-          <div class="stat-bar-wrap"><div class="stat-bar" style="width:50%"></div></div>
-          <span class="stat-val accent">50%</span>
-        </div>
-        <div class="stat-row">
           <span class="stat-label">SQL</span>
           <div class="stat-bar-wrap"><div class="stat-bar" style="width:90%"></div></div>
-          <span class="stat-val accent">90%</span>
+          <span class="stat-val">90%</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Python</span>
+          <div class="stat-bar-wrap"><div class="stat-bar" style="width:85%"></div></div>
+          <span class="stat-val">85%</span>
         </div>
         <div class="stat-row">
           <span class="stat-label">Power BI</span>
           <div class="stat-bar-wrap"><div class="stat-bar" style="width:80%"></div></div>
-          <span class="stat-val accent">80%</span>
+          <span class="stat-val">80%</span>
         </div>
         <div class="stat-row">
           <span class="stat-label">Snowflake</span>
           <div class="stat-bar-wrap"><div class="stat-bar" style="width:75%"></div></div>
-          <span class="stat-val accent">75%</span>
+          <span class="stat-val">75%</span>
         </div>
         <div class="stat-row">
           <span class="stat-label">Machine Learning</span>
           <div class="stat-bar-wrap"><div class="stat-bar" style="width:55%"></div></div>
-          <span class="stat-val accent">55%</span>
+          <span class="stat-val">55%</span>
         </div>
       </div>
     </div>
@@ -448,7 +224,6 @@
 
 <hr class="full-divider">
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="section-label">Compétences</div>
   <h2 class="section-heading">Stack technique</h2>
@@ -485,13 +260,21 @@
         <div class="skill-item">Documentation structurée</div>
       </div>
     </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <div class="skill-name">IA & outils</div>
+      <div class="skill-items">
+        <div class="skill-item">Machine Learning (Le Wagon)</div>
+        <div class="skill-item">GitHub</div>
+        <div class="skill-item">Google Analytics / GTM</div>
+        <div class="skill-item">Streamlit</div>
+      </div>
     </div>
   </div>
 </section>
 
 <hr class="full-divider">
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="section-label">Projets</div>
   <h2 class="section-heading">Travaux data</h2>
@@ -503,12 +286,9 @@
         <a href="https://github.com/domiclmt" target="_blank" class="project-link">↗</a>
       </div>
       <div class="project-title">Analyse industrie cinématographique</div>
-      <div class="project-desc">Pipeline ETL complet pour nettoyer et transformer des données complexes. Développement de dashboards Power BI pour visualiser les tendances du marché et présenter les résultats stratégiques.</div>
+      <div class="project-desc">Pipeline ETL complet pour nettoyer et transformer des données complexes issues de plusieurs sources. Dashboards Power BI pour visualiser les tendances du marché et présenter des résultats stratégiques actionnables.</div>
       <div class="project-tags">
-        <span class="project-tag">Python</span>
-        <span class="project-tag">Power BI</span>
-        <span class="project-tag">ETL</span>
-        <span class="project-tag">Data viz</span>
+        <span class="project-tag">Python</span><span class="project-tag">Power BI</span><span class="project-tag">ETL</span><span class="project-tag">Data viz</span>
       </div>
     </div>
     <div class="project-card">
@@ -517,11 +297,20 @@
         <a href="https://github.com/domiclmt" target="_blank" class="project-link">↗</a>
       </div>
       <div class="project-title">Optimisation livraison alimentaire</div>
-      <div class="project-desc">Analyse des données opérationnelles pour identifier les inefficacités et réduire les coûts. Présentation de recommandations chiffrées aux parties prenantes.</div>
+      <div class="project-desc">Analyse approfondie des données opérationnelles pour identifier les goulets d'étranglement et réduire les coûts. Recommandations chiffrées présentées aux parties prenantes avec impact mesurable.</div>
       <div class="project-tags">
-        <span class="project-tag">SQL</span>
-        <span class="project-tag">Python</span>
-        <span class="project-tag">Analyse opérationnelle</span>
+        <span class="project-tag">SQL</span><span class="project-tag">Python</span><span class="project-tag">Analyse opérationnelle</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-emoji">🧃</div>
+        <a href="https://github.com/domiclmt/melanie_smoothies" target="_blank" class="project-link">↗</a>
+      </div>
+      <div class="project-title">Smoothie Order Form — Streamlit</div>
+      <div class="project-desc">Application web de commande développée avec Streamlit et Python. Déployée sur GitHub avec conteneur de développement intégré pour faciliter la collaboration.</div>
+      <div class="project-tags">
+        <span class="project-tag">Python</span><span class="project-tag">Streamlit</span><span class="project-tag">GitHub</span><span class="project-tag">Dev Container</span>
       </div>
     </div>
   </div>
@@ -529,74 +318,126 @@
 
 <hr class="full-divider">
 
-<!-- PARCOURS -->
 <section id="parcours">
   <div class="section-label">Parcours</div>
   <h2 class="section-heading">Expériences & formations</h2>
   <p class="section-sub">Un parcours construit sur la pratique et l'apprentissage continu.</p>
-  <div class="timeline">
 
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">OCTOBRE 2025 — PRÉSENT</div>
-      <div class="tl-role">Functional Data Analyst</div>
-      <div class="tl-company">McKesson Canada · Montréal, QC</div>
-      <div class="tl-desc">Analyse fonctionnelle des besoins métiers, création et validation de data contracts, identification des sources de données avec documentation du lineage. Validation fonctionnelle des datasets Snowflake et contribution à des initiatives de prévision financière.</div>
-      <div class="tl-tags">
-        <span class="tl-tag">Snowflake</span>
-        <span class="tl-tag">Data contracts</span>
-        <span class="tl-tag">Gouvernance</span>
-        <span class="tl-tag">SQL</span>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div>Expérience professionnelle</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--edu-color)"></div>Formation & certifications</div>
+  </div>
+
+  <div class="parcours-grid">
+
+    <!-- PRO -->
+    <div>
+      <div class="tl-block-header">
+        <div class="tl-block-dot dot-pro"></div>
+        Expériences professionnelles
+      </div>
+      <div class="timeline pro">
+
+        <div class="tl-item">
+          <div class="tl-dot pro"></div>
+          <div class="tl-date">Octobre 2025 — Présent</div>
+          <div class="tl-role">Functional Data Analyst</div>
+          <div class="tl-company pro">McKesson Canada · Montréal, QC</div>
+          <div class="tl-desc">Au sein de l'équipe data de McKesson Canada, je joue un rôle central dans la structuration et la fiabilité des données métiers. Je traduis les besoins des équipes en exigences data concrètes, je conçois et valide des data contracts conformes aux standards de gouvernance interne, et je documente le lineage des données pour assurer leur traçabilité. En collaboration étroite avec les équipes techniques, je valide les datasets exposés dans Snowflake et contribue à des initiatives de prévision financière visant à améliorer la qualité des données à l'échelle de l'organisation.</div>
+          <div class="tl-tags">
+            <span class="tl-tag pro">Snowflake</span><span class="tl-tag pro">Data contracts</span><span class="tl-tag pro">Gouvernance</span><span class="tl-tag pro">SQL</span><span class="tl-tag pro">Lineage</span>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot pro"></div>
+          <div class="tl-date">Mai — Octobre 2025</div>
+          <div class="tl-role">Assistant gérant</div>
+          <div class="tl-company pro">Pharmacie Jean Coutu · Montréal, QC</div>
+          <div class="tl-desc">Encadrement de l'équipe et gestion des opérations quotidiennes du magasin. Suivi des indicateurs de vente, supervision des stocks et mise en place des processus commerciaux. Développement de compétences en management, prise de décision opérationnelle et communication client.</div>
+          <div class="tl-tags">
+            <span class="tl-tag">Management</span><span class="tl-tag">Opérations</span><span class="tl-tag">Suivi des ventes</span>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot pro"></div>
+          <div class="tl-date">Juin 2024</div>
+          <div class="tl-role">Stagiaire Data Analyste</div>
+          <div class="tl-company pro">Département du Lot · Cahors, France</div>
+          <div class="tl-desc">Contribution à la création d'un pôle data au sein d'une collectivité territoriale, avec pour objectif de centraliser et valoriser les données départementales. Réalisation d'un audit des besoins de chaque service et évaluation des outils les mieux adaptés pour structurer le traitement et l'exploitation des données à l'échelle du département.</div>
+          <div class="tl-tags">
+            <span class="tl-tag pro">Data strategy</span><span class="tl-tag pro">Audit</span><span class="tl-tag pro">Analyse des besoins</span>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-date">JUIN 2024</div>
-      <div class="tl-role">Stagiaire Data Analyste</div>
-      <div class="tl-company">Département du Lot · Cahors, France</div>
-      <div class="tl-desc">Participation à la mise en place d'un pôle data pour centraliser et valoriser les données départementales. Analyse des besoins spécifiques et évaluation des outils adaptés.</div>
-      <div class="tl-tags">
-        <span class="tl-tag">Data strategy</span>
-        <span class="tl-tag">Analyse des besoins</span>
+    <!-- FORMATION -->
+    <div>
+      <div class="tl-block-header">
+        <div class="tl-block-dot dot-edu"></div>
+        Formations & certifications
       </div>
-    </div>
+      <div class="timeline edu">
 
-    <div class="tl-item">
-      <div class="tl-dot edu"></div>
-      <div class="tl-date">2025</div>
-      <div class="tl-role">Certification Data Analyst</div>
-      <div class="tl-company">Google · Coursera</div>
-      <div class="tl-desc">SQL, R, Google Data Studio, Tableau — analyse des besoins métier et restitution des résultats.</div>
-    </div>
+        <div class="tl-item">
+          <div class="tl-dot edu"></div>
+          <div class="tl-date">2025 — En cours</div>
+          <div class="tl-role">Hands-On Essentials Series</div>
+          <div class="tl-company edu">Snowflake</div>
+          <div class="tl-desc">Parcours de certification pratique sur la plateforme Snowflake : Data Warehousing (badge 1), Collaboration & Marketplace (badge 2), Data Application Builders (badge 3), Data Lake — données non structurées Parquet/JSON/GeoJSON (badge 4). Data Engineering et Data Science en cours (badges 5 et 6).</div>
+          <div class="tl-tags">
+            <span class="tl-tag edu">Snowflake</span><span class="tl-tag edu">Data Engineering</span><span class="tl-tag edu">Data Lake</span>
+          </div>
+        </div>
 
-    <div class="tl-item">
-      <div class="tl-dot edu"></div>
-      <div class="tl-date">2025</div>
-      <div class="tl-role">Hands-On Essentials Series (Badges 1–4)</div>
-      <div class="tl-company">Snowflake</div>
-      <div class="tl-desc">Data Warehousing, Collaboration & Marketplace, Data Application Builders, Data Lake Workshop.</div>
-    </div>
+        <div class="tl-item">
+          <div class="tl-dot edu"></div>
+          <div class="tl-date">2025</div>
+          <div class="tl-role">Certification Data Analyst</div>
+          <div class="tl-company edu">Google · Coursera</div>
+          <div class="tl-desc">Formation certifiante couvrant l'ensemble du cycle analytique : cadrage des problématiques métier, extraction et nettoyage des données avec SQL et R, et restitution via des tableaux de bord interactifs (Google Data Studio, Tableau).</div>
+          <div class="tl-tags">
+            <span class="tl-tag edu">SQL</span><span class="tl-tag edu">R</span><span class="tl-tag edu">Tableau</span><span class="tl-tag edu">Data Studio</span>
+          </div>
+        </div>
 
-    <div class="tl-item">
-      <div class="tl-dot edu"></div>
-      <div class="tl-date">2024</div>
-      <div class="tl-role">Développeur IA & Data Analyst</div>
-      <div class="tl-company">Le Wagon · Toulouse, France</div>
-      <div class="tl-desc">Formation intensive : Python, SQL, visualisation, Machine Learning, dashboards interactifs.</div>
-      <div class="tl-tags">
-        <span class="tl-tag">Python</span>
-        <span class="tl-tag">ML</span>
-        <span class="tl-tag">SQL</span>
+        <div class="tl-item">
+          <div class="tl-dot edu"></div>
+          <div class="tl-date">2024</div>
+          <div class="tl-role">Développeur IA & Data Analyst</div>
+          <div class="tl-company edu">Le Wagon · Toulouse, France</div>
+          <div class="tl-desc">Bootcamp intensif axé sur la pratique : manipulation et analyse de données avec Python et SQL, visualisation avancée, introduction au Machine Learning (scikit-learn). Réalisation de projets complets avec présentation des analyses stratégiques.</div>
+          <div class="tl-tags">
+            <span class="tl-tag edu">Python</span><span class="tl-tag edu">Machine Learning</span><span class="tl-tag edu">scikit-learn</span><span class="tl-tag edu">SQL</span>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot edu"></div>
+          <div class="tl-date">2023</div>
+          <div class="tl-role">Data Analyst (Formation à distance)</div>
+          <div class="tl-company edu">Data Bird · Cahors, France</div>
+          <div class="tl-desc">Formation pratique couvrant l'extraction et le nettoyage de données avec SQL et Python, la création de dashboards interactifs avec Power BI et Google Data Studio, et l'analyse de jeux de données réels avec formulation de recommandations stratégiques.</div>
+          <div class="tl-tags">
+            <span class="tl-tag edu">SQL</span><span class="tl-tag edu">Python</span><span class="tl-tag edu">Power BI</span>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot edu"></div>
+          <div class="tl-date">2023 — 2024</div>
+          <div class="tl-role">Formations complémentaires</div>
+          <div class="tl-company edu">Udemy</div>
+          <div class="tl-desc">Excel avancé (tableaux croisés dynamiques, Power Query, VBA) et SQL avancé (modélisation de données, requêtes complexes et optimisation des performances).</div>
+          <div class="tl-tags">
+            <span class="tl-tag edu">Excel VBA</span><span class="tl-tag edu">Power Query</span><span class="tl-tag edu">SQL avancé</span>
+          </div>
+        </div>
+
       </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-dot edu"></div>
-      <div class="tl-date">2023</div>
-      <div class="tl-role">Data Analyst (Formation à distance)</div>
-      <div class="tl-company">Data Bird · Cahors, France</div>
-      <div class="tl-desc">SQL, Python, Power BI, Google Data Studio — analyses sur données réelles.</div>
     </div>
 
   </div>
@@ -604,8 +445,7 @@
 
 <hr class="full-divider">
 
-<!-- CONTACT -->
-<section id="contact" style="padding-bottom: 2rem;">
+<section id="contact" style="padding-bottom:2rem;">
   <div class="section-label">Contact</div>
 </section>
 <div class="contact-section">
@@ -615,15 +455,13 @@
   </div>
   <div class="contact-links">
     <a href="mailto:Dominique.clmt@gmail.com" class="contact-link">✉ Email</a>
-    <a href="https://www.linkedin.com/in/dominique-clement/" target="_blank" class="contact-link">in LinkedIn</a>
+    <a href="https://linkedin.com/in/dominique-clement" target="_blank" class="contact-link">in LinkedIn</a>
     <a href="https://github.com/domiclmt" target="_blank" class="contact-link">⌥ GitHub</a>
     <a href="CV_dominique_clement_2026.pdf" download class="btn-primary" style="font-size:13px;padding:9px 18px;">↓ Télécharger CV</a>
   </div>
 </div>
 
-<footer>
-  © 2026 Dominique Clément · Montréal, QC · Fait avec HTML, CSS & passion pour les données
-</footer>
+<footer>© 2026 Dominique Clément · Montréal, QC · Fait avec HTML, CSS & passion pour les données</footer>
 
 </body>
 </html>
